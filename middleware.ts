@@ -19,6 +19,6 @@ export const config = {
     matcher: [
         // Protect all paths except for /login, /register, and the landing page (/)
         // "/((?!login|register|).*)",
-        // "/((?!login|register|checkAuth).*)", // Protect all routes except login and register
+        "/((?!login|register|checkAuth).*)", // Protect all routes except login and register
     ],
 };

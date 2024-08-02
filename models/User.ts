@@ -1,10 +1,9 @@
-import mongoose, { Schema, model } from "mongoose";
+import mongoose, { Schema, model, Document } from "mongoose";
 
-export interface UserDocument {
-    _id: string;
+interface UserDocument extends Document {
     username: string;
     password: string;
-    role: string; // Add role field
+    role: string;
     isActive: boolean;
     createdAt: Date;
     updatedAt: Date;
@@ -23,7 +22,7 @@ const UserSchema = new Schema<UserDocument>(
         role: {
             type: String,
             required: true,
-            enum: ["user", "admin"], // Optional: add roles you want to support
+            enum: ["user", "admin"],
             default: "user",
         },
         isActive: {

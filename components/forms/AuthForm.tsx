@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { register } from "@/actions/register";
 import { FormEvent, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface AuthFormProps {
     type: "Login" | "Register";
@@ -15,6 +16,8 @@ const AuthForm = ({ type }: AuthFormProps) => {
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
     const formRef = useRef<HTMLFormElement>(null);
+    const searchParams = useSearchParams(); // Use this to get URL parameters
+    const callbackUrl = searchParams.get("callbackUrl") || "/"; // Default to home if no callbackUrl
 
     const handleRegistration = async (formData: FormData) => {
         const username = formData.get("username") as string;
@@ -55,6 +58,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
             username,
             password,
             redirect: false,
+            callbackUrl, // Pass the callbackUrl here
         });
 
         if (res?.error) {
@@ -62,8 +66,8 @@ const AuthForm = ({ type }: AuthFormProps) => {
             return;
         }
 
-        if (res?.ok) {
-            router.push("/");
+        if (res?.ok && res.url) {
+            router.push(res.url); // Redirect to the callback URL
         }
     };
 
@@ -93,7 +97,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
                 label="Username"
                 name="username"
                 type="text"
-                placeholder="username"
+                placeholder="Username"
             />
             <Input
                 required
