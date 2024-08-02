@@ -1,4 +1,4 @@
-import { connectDB } from "@/lib/mongodb";
+import connectDB from "@/lib/mongodb";
 import type { NextAuthOptions } from "next-auth";
 
 import bcrypt from "bcryptjs";

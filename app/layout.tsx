@@ -9,6 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "Todo App",
     description: "Created by pouria darandi",
+    robots: "index, follow",
+    creator: "Pouria Darandi",
+    publisher: "Pouria Darandi",
+    authors: [{ name: "Pouria Darandi", url: "https://pouria-drd.liara.run" }],
 };
 
 export default function RootLayout({
