@@ -89,12 +89,14 @@ const AuthForm = ({ type }: AuthFormProps) => {
                 {type === "Login" ? "Sign In" : "Register"}
             </h1>
             <Input
+                required
                 label="Username"
                 name="username"
                 type="text"
                 placeholder="username"
             />
             <Input
+                required
                 label="Password"
                 name="password"
                 type="password"
@@ -102,6 +104,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
             />
             {type === "Register" && (
                 <Input
+                    required
                     label="Confirm Password"
                     name="confirmPassword"
                     type="password"
