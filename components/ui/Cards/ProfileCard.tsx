@@ -32,7 +32,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user, onSignOut }) => {
                 <h1 className="text-4xl font-bold text-gray-900 mb-2">
                     {user.username}
                 </h1>
-                <p className="text-gray-600 text-lg">{user.role}</p>
+                {/* <p className="text-gray-600 text-lg">{user.role}</p> */}
                 <Badge status={user.isActive ? "active" : "inactive"} />
             </div>
             <div className="space-y-4 mb-6">
