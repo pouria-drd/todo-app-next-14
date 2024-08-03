@@ -115,10 +115,9 @@ const AuthForm = ({ type }: AuthFormProps) => {
                     placeholder="Confirm Password"
                 />
             )}
-            <Button
-                type="submit"
-                text={type === "Login" ? "Sign In" : "Sign Up"}
-            />
+            <Button type="submit">
+                {type === "Login" ? "Sign In" : "Sign Up"}
+            </Button>
             <Link
                 href={type === "Login" ? "/register" : "/login"}
                 className="text-sm text-[#888] transition duration-150 ease hover:text-black">

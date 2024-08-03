@@ -38,16 +38,15 @@ export const authOptions: NextAuthOptions = {
                     throw new Error("Wrong username or password!");
                 }
 
-                return user;
-
-                // return {
-                //     _id: user._id,
-                //     username: user.username,
-                //     isActive: user.isActive,
-                //     userRole: user.userRole,
-                //     createdAt: user.createdAt,
-                //     updatedAt: user.updatedAt,
-                // };
+                // return user;
+                return {
+                    id: user._id.toString(),
+                    username: user.username,
+                    role: user.role,
+                    isActive: user.isActive,
+                    createdAt: user.createdAt.toISOString(),
+                    updatedAt: user.updatedAt.toISOString(),
+                };
             },
         }),
     ],
@@ -56,6 +55,32 @@ export const authOptions: NextAuthOptions = {
         strategy: "jwt",
     },
     pages: {
-        signIn: "/login", // Use the custom login page
+        signIn: "/login",
+    },
+    callbacks: {
+        async session({ session, token }) {
+            if (token) {
+                session.user = {
+                    id: token.id as string,
+                    username: token.username as string,
+                    role: token.role as string,
+                    isActive: token.isActive as boolean,
+                    createdAt: token.createdAt as string,
+                    updatedAt: token.updatedAt as string,
+                };
+            }
+            return session;
+        },
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+                token.username = user.username;
+                token.role = user.role;
+                token.isActive = user.isActive;
+                token.createdAt = user.createdAt;
+                token.updatedAt = user.updatedAt;
+            }
+            return token;
+        },
     },
 };
