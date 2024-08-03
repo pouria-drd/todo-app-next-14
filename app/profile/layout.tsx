@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Todo App | Auth",
+    title: "Todo App | Profile",
     description: "Created by pouria darandi",
     robots: "index, follow",
     creator: "Pouria Darandi",
