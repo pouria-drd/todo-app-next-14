@@ -67,7 +67,8 @@ const AuthForm = ({ type }: AuthFormProps) => {
         }
 
         if (res?.ok && res.url) {
-            router.push(res.url); // Redirect to the callback URL
+            // Use window.location.href for a full page reload
+            window.location.href = res.url;
         }
     };
 

@@ -2,6 +2,7 @@
 
 import NavLink from "./NavLink";
 import { useRouter } from "next/navigation";
+import LogoutIcon from "../icons/LogoutIcon";
 import { signOut, useSession } from "next-auth/react";
 
 const AuthLink = () => {
@@ -12,14 +13,14 @@ const AuthLink = () => {
         if (status === "authenticated") {
             return (
                 <button
-                    className="text-drd-primary/80 hover:text-drd-primary transition-all duration-200
-                    text-sm sm:text-base"
+                    className="text-red-500 hover:text-red-600 transition-all duration-200"
                     onClick={() => {
                         signOut({ redirect: false }).then(() => {
                             router.push("/login");
+                            window.location.reload();
                         });
                     }}>
-                    Log Out
+                    <LogoutIcon />
                 </button>
             );
         } else if (status === "loading") {

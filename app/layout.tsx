@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Todo App",
-    description: "Created by pouria darandi",
+    description: "Created by Pouria Darandi",
     robots: "index, follow",
     creator: "Pouria Darandi",
     publisher: "Pouria Darandi",
