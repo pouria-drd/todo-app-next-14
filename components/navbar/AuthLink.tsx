@@ -12,7 +12,8 @@ const AuthLink = () => {
         if (status === "authenticated") {
             return (
                 <button
-                    className="text-drd-primary/80 hover:text-drd-primary transition-all duration-200"
+                    className="text-drd-primary/80 hover:text-drd-primary transition-all duration-200
+                    text-sm sm:text-base"
                     onClick={() => {
                         signOut({ redirect: false }).then(() => {
                             router.push("/login");

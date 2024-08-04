@@ -14,7 +14,12 @@
 .navLink {
     position: relative;
     text-decoration: none;
-    @apply text-drd-text-primary/80 hover:text-drd-text-primary w-fit transition-all;
+    @apply text-drd-text-primary/80 hover:text-drd-text-primary transition-all
+    text-sm sm:text-base w-fit;
+}
+
+.navLink.active {
+    @apply text-drd-text-primary;
 }
 
 .navLink::after {
