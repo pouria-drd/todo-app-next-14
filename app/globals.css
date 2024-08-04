@@ -20,3 +20,15 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* ---------------------------------------------------------------------- */
+/* General area */
+
+.appPX {
+    @apply px-4 sm:px-8 md:px-12 lg:px-20 xl:px-24;
+}
+
+.glass {
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+}

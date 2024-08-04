@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 
 const Navbar = () => {
     return (
-        <nav className={`${styles.drdNavbar} ${styles.glass}`}>
+        <nav className={`${styles.drdNavbar} glass appPX`}>
             <div className="container mx-auto flex justify-between items-center">
                 <div className="text-xl font-bold">
                     <Link href="/">Todo App</Link>
