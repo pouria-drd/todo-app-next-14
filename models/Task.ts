@@ -1,18 +1,19 @@
 import mongoose, { Schema, model, Document, Types } from "mongoose";
 
 interface TaskDocument extends Document {
-    description: string;
+    content: string;
     topic: Types.ObjectId;
-    isCompleted: boolean;
     createdAt: Date;
     updatedAt: Date;
+    isActive: boolean;
+    isCompleted: boolean;
 }
 
 const TaskSchema = new Schema<TaskDocument>(
     {
-        description: {
+        content: {
             type: String,
-            required: [true, "Description is required"],
+            required: [true, "Content is required"],
         },
         topic: {
             type: Schema.Types.ObjectId,
@@ -23,11 +24,16 @@ const TaskSchema = new Schema<TaskDocument>(
             type: Boolean,
             default: false,
         },
+        isActive: {
+            type: Boolean,
+            default: true,
+        },
     },
     {
         timestamps: true,
     }
 );
 
-const Task = mongoose.models?.Task || model<TaskDocument>("Task", TaskSchema);
-export default Task;
+const TaskModel =
+    mongoose.models?.Task || model<TaskDocument>("Task", TaskSchema);
+export default TaskModel;
