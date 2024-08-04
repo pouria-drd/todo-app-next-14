@@ -3,7 +3,7 @@
 import connectDB from "@/lib/mongodb";
 
 import bcrypt from "bcryptjs";
-import User from "@/models/User";
+import UserModel from "@/models/User";
 
 export const register = async (values: any) => {
     const { username, password } = values;
@@ -11,7 +11,7 @@ export const register = async (values: any) => {
     try {
         await connectDB();
 
-        const userFound = await User.findOne({ username });
+        const userFound = await UserModel.findOne({ username });
 
         if (userFound) {
             return {
@@ -21,7 +21,7 @@ export const register = async (values: any) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const user = new User({
+        const user = new UserModel({
             username,
             password: hashedPassword,
         });

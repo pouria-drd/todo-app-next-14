@@ -2,7 +2,7 @@ import connectDB from "@/lib/mongodb";
 import type { NextAuthOptions } from "next-auth";
 
 import bcrypt from "bcryptjs";
-import User from "@/models/User";
+import UserModel from "@/models/User";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
 
                 await connectDB();
 
-                const user = await User.findOne({
+                const user = await UserModel.findOne({
                     username: credentials.username,
                 }).select("+password");
 

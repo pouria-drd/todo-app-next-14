@@ -14,7 +14,7 @@ const Badge = (props: BadgeProps) => {
     return (
         <span
             className={`inline-flex items-center 
-            text-xs sm:text-sm px-3 py-1 
+            text-xs px-2 py-1 
             rounded-full font-medium ${statusStyles[props.status]}`}>
             {props.status.charAt(0).toUpperCase() + props.status.slice(1)}
         </span>

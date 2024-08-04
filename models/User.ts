@@ -1,7 +1,7 @@
 import UserDocument from "../types/User";
 import mongoose, { Schema, model } from "mongoose";
 
-const UserSchema = new Schema<UserDocument>(
+const UserModelSchema = new Schema<UserDocument>(
     {
         username: {
             type: String,
@@ -27,5 +27,30 @@ const UserSchema = new Schema<UserDocument>(
     }
 );
 
-const User = mongoose.models?.User || model<UserDocument>("User", UserSchema);
-export default User;
+const UserModel =
+    mongoose.models?.User || model<UserDocument>("User", UserModelSchema);
+export default UserModel;
+
+export async function getUsers(): Promise<UserDocument[]> {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI as string);
+        const users = await UserModel.find().exec();
+
+        const result = users.map((user) => ({
+            id: user._id.toString(),
+            username: user.username,
+            email: user.email,
+            createdAt: user.createdAt.toISOString(),
+            updatedAt: user.updatedAt.toISOString(),
+            role: user.role,
+            isActive: user.isActive,
+        }));
+
+        return result;
+    } catch (error) {
+        console.error("Error fetching users: ", error);
+        throw new Error("Could not fetch users.");
+    } finally {
+        await mongoose.disconnect();
+    }
+}

@@ -14,7 +14,7 @@ const Navbar = async () => {
     }
 
     return (
-        <nav className={`${styles.drdNavbar} glass appPX`}>
+        <nav className={`${styles.drdNavbar} glass `}>
             <div className="container mx-auto flex justify-between items-center">
                 <div className="text-xl sm:text-2xl font-bold">
                     <Link href="/">Todo App</Link>
