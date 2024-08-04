@@ -8,7 +8,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<ButtonProps> = ({ children, ...props }) => (
     <button
-        className="w-full h-10 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition duration-150"
+        className="bg-drd-primary/95 hover:bg-drd-primary text-white font-medium 
+        rounded transition duration-150 w-full px-4 py-2"
         {...props}>
         {children}
     </button>
