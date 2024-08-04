@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+/* ---------------------------------------------------------------------- */
+/* Scroll area */
+
+::-webkit-scrollbar {
+    @apply bg-gray-300 w-2 h-1;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    @apply bg-gray-400;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    @apply bg-gray-400;
+}
+
+html {
+    scroll-behavior: smooth;
+}
