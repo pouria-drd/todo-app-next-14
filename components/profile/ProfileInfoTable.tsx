@@ -7,10 +7,12 @@ interface ProfileInfoTableProps {
 const ProfileInfoTable = (props: ProfileInfoTableProps) => {
     return (
         <div className="flex justify-between">
-            <span className="text-drd-text-primary font-semibold">
+            <span className="text-drd-text-primary text-sm sm:text-base font-semibold">
                 {props.title}
             </span>
-            <span className="text-drd-text-secondary">{props.content}</span>
+            <span className="text-drd-text-secondary text-sm sm:text-base">
+                {props.content}
+            </span>
             {props.children}
         </div>
     );

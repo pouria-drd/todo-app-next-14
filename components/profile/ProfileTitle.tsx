@@ -10,7 +10,7 @@ const ProfileTitle = (props: ProfileTitleProps) => {
         <div className="flex flex-col items-center justify-start gap-4">
             {/* Profile Picture */}
             <ImageCard seed={props.user.username} />
-            <h1 className="text-4xl font-bold text-drd-text-primary">
+            <h1 className="text-3xl sm:text-4xl font-bold text-drd-text-primary">
                 {props.user.username}
             </h1>
             {/* <p className="text-gray-600 text-lg">{user.role}</p> */}
