@@ -24,7 +24,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <Provider>
-                <body className={`${inter.className} appPX bg-drd-bg-primary`}>
+                <body
+                    className={`${inter.className} appPX bg-drd-bg-secondary`}>
                     <Navbar />
                     {children}
                 </body>

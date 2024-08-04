@@ -1,7 +1,7 @@
 "use client";
 
-import { ProfileCard } from "@/components/ui";
-import { useSession, signOut } from "next-auth/react";
+import ProfileCard from "./ProfileCard";
+import { useSession } from "next-auth/react";
 
 const ProfileManager = () => {
     const { data: session, status } = useSession();
@@ -20,7 +20,7 @@ const ProfileManager = () => {
 
     const { user } = session;
 
-    return <ProfileCard user={user} onSignOut={() => signOut()} />;
+    return <ProfileCard user={user!} />;
 };
 
 export default ProfileManager;

@@ -2,7 +2,7 @@ interface BadgeProps {
     status: "active" | "inactive" | "pending" | "suspended";
 }
 
-const Badge: React.FC<BadgeProps> = ({ status }) => {
+const Badge = (props: BadgeProps) => {
     // Define styles for different status types
     const statusStyles = {
         active: "bg-green-200 text-green-700",
@@ -13,8 +13,10 @@ const Badge: React.FC<BadgeProps> = ({ status }) => {
 
     return (
         <span
-            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusStyles[status]}`}>
-            {status.charAt(0).toUpperCase() + status.slice(1)}
+            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                statusStyles[props.status]
+            }`}>
+            {props.status.charAt(0).toUpperCase() + props.status.slice(1)}
         </span>
     );
 };

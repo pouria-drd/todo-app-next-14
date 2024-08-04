@@ -1,4 +1,4 @@
-import ProfileManager from "@/components/ProfileManager";
+import ProfileManager from "@/components/profile/ProfileManager";
 
 function ProfilePage() {
     return <ProfileManager />;

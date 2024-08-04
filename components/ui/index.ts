@@ -1,4 +1,4 @@
-export { default as Input } from "./Input/Input";
-export { default as Badge } from "./Badge/Badge";
-export { default as Button } from "./Button/Button";
-export { default as ProfileCard } from "./Cards/ProfileCard";
+export { default as Input } from "./input/Input";
+export { default as Badge } from "./badge/Badge";
+export { default as Button } from "./button/Button";
+export { default as ImageCard } from "./cards/ImageCard";
