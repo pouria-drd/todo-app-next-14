@@ -1,8 +1,8 @@
 import connectDB from "@/lib/mongodb";
 import TopicModel from "@/models/Topic";
 import { authOptions } from "@/lib/auth";
-import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
+import { NextRequest, NextResponse } from "next/server";
 
 /**
  * Handler for GET request to fetch a topic by ID along with active tasks if it is active and belongs to the authenticated user.
@@ -210,7 +210,7 @@ export async function DELETE(
         await topic.save();
         return NextResponse.json(
             { message: "Topic deactivated" },
-            { status: 204 }
+            { status: 200 }
         );
     } catch (error) {
         // Handle errors

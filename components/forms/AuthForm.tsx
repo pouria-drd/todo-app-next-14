@@ -4,18 +4,19 @@ import Link from "next/link";
 import { Button, Input } from "../ui";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { register } from "@/actions/register";
-import { FormEvent, useRef, useState } from "react";
+import { registerUser } from "@/actions/registerUser";
 import { useSearchParams } from "next/navigation";
+import { FormEvent, useRef, useState } from "react";
 
 interface AuthFormProps {
     type: "Login" | "Register";
 }
 
 const AuthForm = ({ type }: AuthFormProps) => {
-    const [error, setError] = useState<string | null>(null);
     const router = useRouter();
     const formRef = useRef<HTMLFormElement>(null);
+    const [error, setError] = useState<string | null>(null);
+
     const searchParams = useSearchParams(); // Use this to get URL parameters
     const callbackUrl = searchParams.get("callbackUrl") || "/"; // Default to home if no callbackUrl
 
@@ -34,7 +35,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
             return;
         }
 
-        const res = await register({ username, password });
+        const res = await registerUser({ username, password });
 
         if (res?.error) {
             setError(res.error);

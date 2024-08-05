@@ -34,5 +34,6 @@ export const config = {
         "/", // Protect home page
         "/admin/:path*", // Protect all admin routes
         "/profile/:path*", // Protect all profile routes
+        "/topics/:path*", // Protect all topics routes
     ],
 };

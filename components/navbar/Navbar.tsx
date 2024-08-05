@@ -16,7 +16,7 @@ const Navbar = async () => {
     return (
         <nav className={`${styles.drdNavbar} glass `}>
             <div className="container mx-auto flex justify-between items-center">
-                <div className="text-xl sm:text-2xl font-bold">
+                <div className="text-drd-text-primary text-2xl sm:text-3xl font-bold">
                     <Link href="/">Todo App</Link>
                 </div>
                 <ul className="flex space-x-4">
@@ -25,6 +25,7 @@ const Navbar = async () => {
                     ) : (
                         <NavLink href="/">Home</NavLink>
                     )}
+                    <NavLink href="/topics">Topics</NavLink>
                     <NavLink href="/profile">Profile</NavLink>
                     <AuthLink />
                 </ul>

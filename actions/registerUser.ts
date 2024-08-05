@@ -5,8 +5,13 @@ import connectDB from "@/lib/mongodb";
 import bcrypt from "bcryptjs";
 import UserModel from "@/models/User";
 
-export const register = async (values: any) => {
-    const { username, password } = values;
+interface registerProps {
+    username: string;
+    password: string;
+}
+
+export const registerUser = async (data: registerProps) => {
+    const { username, password } = data;
 
     try {
         await connectDB();
@@ -27,6 +32,10 @@ export const register = async (values: any) => {
         });
 
         const savedUser = await user.save();
+
+        return {
+            message: "User created",
+        };
     } catch (e) {
         console.log(e);
     }
