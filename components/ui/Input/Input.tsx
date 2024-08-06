@@ -12,7 +12,7 @@ const Input: FC<InputProps> = ({ label, ...props }) => (
         <input
             className="border border-gray-300 transition-all duration-150
             focus:outline-none focus:ring-2 focus:ring-drd-primary 
-            rounded px-4 py-2"
+            rounded px-3 py-2"
             {...props}
         />
     </div>

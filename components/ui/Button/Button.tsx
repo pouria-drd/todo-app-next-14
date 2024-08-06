@@ -10,7 +10,7 @@ const Button: FC<ButtonProps> = ({ children, ...props }) => (
     <button
         className={`bg-drd-primary/95 hover:bg-drd-primary 
         text-white font-medium 
-        rounded transition duration-150 px-4 py-2 `}
+        rounded transition duration-150 px-3 py-2`}
         {...props}>
         {children}
     </button>
