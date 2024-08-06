@@ -1,10 +1,9 @@
-import TopicFormModal from "@/components/topic/TopicFormModal";
+import TaskTable from "@/components/task/TaskTable";
 
 const TopicDetailPage = ({ params }: { params: { id: string } }) => {
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Edit Topic</h1>
-            <TopicFormModal topicID={params.id} />
+        <div className="flex flex-col gap-4">
+            <TaskTable topicId={params.id} />
         </div>
     );
 };

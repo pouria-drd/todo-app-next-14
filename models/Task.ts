@@ -1,13 +1,5 @@
+import TaskDocument from "@/types/Task";
 import mongoose, { Schema, model, Document, Types } from "mongoose";
-
-interface TaskDocument extends Document {
-    content: string;
-    topic: Types.ObjectId;
-    createdAt: Date;
-    updatedAt: Date;
-    isActive: boolean;
-    isCompleted: boolean;
-}
 
 const TaskSchema = new Schema<TaskDocument>(
     {

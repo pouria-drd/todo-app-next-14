@@ -3,7 +3,7 @@
 import TopicDocument from "@/types/Topic";
 import { Button, Input, Modal } from "../ui";
 import { FormEvent, useRef, useState } from "react";
-import { createTopic, updateTopicId } from "@/utils/TopicCRUD";
+import { createTopic, updateTopicId } from "@/utils/topicCRUD";
 
 interface TopicFormProps {
     openModal: boolean;

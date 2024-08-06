@@ -12,7 +12,7 @@ import { NextRequest, NextResponse } from "next/server";
  */
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: { topicId: string } }
 ) {
     // Get the session information
     const session = await getServerSession(authOptions);
@@ -28,7 +28,7 @@ export async function GET(
     try {
         // Find the topic by ID and check if it's active
         const topic = await TopicModel.findOne({
-            _id: params.id,
+            _id: params.topicId,
             isActive: true,
         }).populate({
             path: "tasks",
@@ -63,7 +63,7 @@ export async function GET(
  */
 export async function PUT(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: { topicId: string } }
 ) {
     // Get the session information
     const session = await getServerSession(authOptions);
@@ -79,7 +79,7 @@ export async function PUT(
     try {
         // Find the topic by ID and check if it's active
         const topic = await TopicModel.findOne({
-            _id: params.id,
+            _id: params.topicId,
             isActive: true,
         });
 
@@ -120,7 +120,7 @@ export async function PUT(
  */
 export async function PATCH(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: { topicId: string } }
 ) {
     // Get the session information
     const session = await getServerSession(authOptions);
@@ -136,7 +136,7 @@ export async function PATCH(
     try {
         // Find the topic by ID and check if it's active
         const topic = await TopicModel.findOne({
-            _id: params.id,
+            _id: params.topicId,
             isActive: true,
         });
 
@@ -177,7 +177,7 @@ export async function PATCH(
  */
 export async function DELETE(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: { topicId: string } }
 ) {
     // Get the session information
     const session = await getServerSession(authOptions);
@@ -193,7 +193,7 @@ export async function DELETE(
     try {
         // Find the topic by ID and check if it's active
         const topic = await TopicModel.findOne({
-            _id: params.id,
+            _id: params.topicId,
             isActive: true,
         });
 

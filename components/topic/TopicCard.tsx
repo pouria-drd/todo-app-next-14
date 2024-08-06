@@ -7,7 +7,7 @@ import EditIcon from "../icons/EditIcon";
 import TopicDocument from "@/types/Topic";
 import formatDate from "@/utils/formatDate";
 import TopicFormModal from "./TopicFormModal";
-import { deleteTopicById } from "@/utils/TopicCRUD";
+import { deleteTopicById } from "@/utils/topicCRUD";
 
 interface TopicCardProps {
     topic: TopicDocument;

@@ -5,3 +5,4 @@ export { default as Modal } from "./modal/Modal";
 export { default as Button } from "./button/Button";
 export { default as Backdrop } from "./modal/Backdrop";
 export { default as ImageCard } from "./cards/ImageCard";
+export { default as TextArea } from "./textarea/TextArea";

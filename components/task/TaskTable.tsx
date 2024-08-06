@@ -1,31 +1,34 @@
 "use client";
 
 import { Button } from "../ui";
-import TopicDocument from "@/types/Topic";
+import TaskDocument from "@/types/Task";
 import { useEffect, useState } from "react";
-import { getTopics } from "@/utils/topicCRUD";
-import TopicFormModal from "./TopicFormModal";
-import TopicList from "@/components/topic/TopicList";
+import TaskFormModal from "./TaskFormModal";
+import TaskList from "@/components/task/TaskList";
+import { getTasksByTopic } from "@/utils/taskCRUD";
 
-const TopicTable = () => {
+interface TaskTableProps {
+    topicId: string;
+}
+
+const TaskTable = (props: TaskTableProps) => {
     const [openModal, setOpenModal] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [topics, setTopics] = useState<TopicDocument[]>([]);
+    const [tasks, setTasks] = useState<TaskDocument[]>([]);
 
-    const loadTopics = async () => {
-        const result = await getTopics();
+    const loadTasks = async () => {
+        const result = await getTasksByTopic(props.topicId);
 
         if (result.error) {
-            setError("Error loading topics");
+            setError("Error loading tasks");
         } else {
-            setTopics(result);
+            setTasks(result);
         }
     };
 
     useEffect(() => {
-        loadTopics();
+        loadTasks();
     }, []);
-
     return (
         <>
             <div
@@ -36,7 +39,7 @@ const TopicTable = () => {
                     flex items-center justify-between
                     border-b border-gray-300 w-full p-4">
                     <h1 className="text-drd-text-primary text-xl sm:text-2xl font-bold">
-                        My Topics
+                        My Tasks
                     </h1>
 
                     <Button onClick={() => setOpenModal(true)}>Add</Button>
@@ -46,18 +49,23 @@ const TopicTable = () => {
                     {error ? (
                         <p className="text-red-500">{error}</p>
                     ) : (
-                        <TopicList topics={topics} onUpdate={loadTopics} />
+                        <TaskList
+                            topicId={props.topicId}
+                            tasks={tasks}
+                            onUpdate={loadTasks}
+                        />
                     )}
                 </div>
             </div>
 
             {openModal && (
-                <TopicFormModal
+                <TaskFormModal
+                    topicId={props.topicId}
                     openModal={openModal}
                     onCloseModal={() => setOpenModal(false)}
                     onSubmit={() => {
                         setOpenModal(false);
-                        loadTopics();
+                        loadTasks();
                     }}
                 />
             )}
@@ -65,4 +73,4 @@ const TopicTable = () => {
     );
 };
 
-export default TopicTable;
+export default TaskTable;
